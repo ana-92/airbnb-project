@@ -32,6 +32,9 @@
   "lint-staged": {
     "*.js": [
       "eslint --fix"
+    ],
+    "*.{json,scss,css,md}": [
+      "prettier --write"
     ]
   },
   "browserslist": {
