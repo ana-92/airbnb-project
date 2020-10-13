@@ -31,8 +31,7 @@
   },
   "lint-staged": {
     "*.js": [
-      "./node_modules/.bin/eslint — fix",
-      "git add"
+      "eslint --fix"
     ]
   },
   "browserslist": {
@@ -51,6 +50,7 @@
     "eslint": "^7.11.0",
     "eslint-plugin-react": "^7.21.4",
     "husky": "^4.3.0",
-    "lint-staged": "^10.4.0"
+    "lint-staged": "^10.4.0",
+    "prettier": "^2.1.2"
   }
 }
