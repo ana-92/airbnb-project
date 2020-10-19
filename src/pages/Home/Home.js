@@ -22,19 +22,24 @@ class Home extends Component {
             return (<Spinner />);
         }
 
-        const recCities = <Cities cities={this.state.cities}></Cities>
-
-        return (
+        return (<>
             <div className='container-fluid'>
                 <div className='row'>
                     <div className='home col s12'>
                         <div className='upper-fold'>
-                            <SearchBox></SearchBox>
+                            <SearchBox />
                         </div>
                     </div>
-                    {recCities}
                 </div>
             </div>
+            <div className='container-fluid lower-fold'>
+                <div className='row'>
+                    <div className='col s12'>
+                        <Cities cities={this.state.cities} header='Recommended Cities for you'></Cities>
+                    </div>
+                </div>
+            </div>
+        </>
         )
     }
 
