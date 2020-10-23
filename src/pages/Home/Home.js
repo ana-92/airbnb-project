@@ -4,6 +4,7 @@ import SearchBox from './SearchBox';
 import Spinner from '../../utility/Spinner/Spinner'
 import axios from 'axios';
 import Cities from '../../utility/City/Cities';
+import Activities from '../../utility/Activity/Activities';
 
 class Home extends Component {
     state = {
@@ -11,6 +12,7 @@ class Home extends Component {
         europeCities: {},
         asiaCities: {},
         exoticCities: {},
+        activities: []
     }
 
     async componentDidMount() {
@@ -18,23 +20,34 @@ class Home extends Component {
         const europeCitiesUrl = `${window.apiHost}/cities/europe`;
         const asiaCitiesUrl = `${window.apiHost}/cities/asia`;
         const exoticCitiesUrl = `${window.apiHost}/cities/exotic`;
-        let citiesPromises = [recommendedUrl, europeCitiesUrl, asiaCitiesUrl, exoticCitiesUrl];
+        const citiesURL = [recommendedUrl, europeCitiesUrl, asiaCitiesUrl, exoticCitiesUrl];
+        let promises = citiesURL.map(url => axios.get(url));
 
-        citiesPromises = citiesPromises.map(url => axios.get(url));
+
+        const activitiesUrl = `${window.apiHost}/activities/today`;
+        promises.push(axios(activitiesUrl));
+
+
 
         const [
-            { data: recommendedCities },
+            { data: cities },
             { data: europeCities },
             { data: asiaCities },
-            { data: exoticCities }
-        ] = await Promise.all(citiesPromises)
+            { data: exoticCities },
+            { data: activities }
+        ] = await Promise.all(promises)
 
         this.setState({
-            cities: recommendedCities,
+            cities,
             europeCities,
             asiaCities,
-            exoticCities
-        })
+            exoticCities,
+            activities
+        });
+
+
+
+
     }
 
     render() {
@@ -56,6 +69,9 @@ class Home extends Component {
                 <div className='row'>
                     <div className='col s12'>
                         <Cities cities={this.state.cities} header='Recommended Cities for you'></Cities>
+                    </div>
+                    <div className='col s12'>
+                        <Activities activities={this.state.activities} header='Today in your area' />
                     </div>
                     <div className='col s12'>
                         <Cities cities={this.state.europeCities.cities} header={this.state.europeCities.header}></Cities>
