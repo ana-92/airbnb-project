@@ -8,12 +8,12 @@ class Slider extends Component {
 
     render() {
         const settings = {
+            slidesToShow: 4,
+            slidesToScroll: 1,
+            arrows: true,
             dots: false,
             infinite: true,
             speed: 500,
-            arrows: true,
-            slideToShow: 4,
-            slideToScroll: 1
         };
         return (
             <div className='slick'>

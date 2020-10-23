@@ -5,7 +5,8 @@ import { Link } from 'react-router-dom';
 class Activity extends Component {
 
     render() {
-        const { activityType, cost, id, image, rating, title, totalRating } = this.props.activity;
+        console.log(this.props.activity)
+        const { activityType, cost, id, image, rating, title, totalRatings } = this.props.activity;
         return (
             <div className='activity'>
                 <Link to={`/activity/${id}`}>
@@ -14,7 +15,7 @@ class Activity extends Component {
                     <div className="title">{title}</div>
                     <div className="cost">From ${cost}/person</div>
                     <div className="rating"><i className='material-icons'>start</i>
-                        {rating}({totalRating})</div>
+                        {rating}({totalRatings})</div>
                 </Link>
             </div>
         )
