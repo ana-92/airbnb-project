@@ -12,8 +12,6 @@ class App extends Component {
       <Router>
         <Route path="/" component={NavBar}></Route>
         <Route exact path="/" component={Home}></Route>
-        <Route exact path='/city/:cid' component={Single}></Route>
-        <Route exact path='/activity/:aid' component={Single}></Route>
       </Router>
     )
   }

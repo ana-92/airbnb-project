@@ -12,7 +12,8 @@ class Home extends Component {
         europeCities: {},
         asiaCities: {},
         exoticCities: {},
-        activities: []
+        activities: [],
+        venues: {}
     }
 
     async componentDidMount() {
@@ -20,13 +21,19 @@ class Home extends Component {
         const europeCitiesUrl = `${window.apiHost}/cities/europe`;
         const asiaCitiesUrl = `${window.apiHost}/cities/asia`;
         const exoticCitiesUrl = `${window.apiHost}/cities/exotic`;
-        const citiesURL = [recommendedUrl, europeCitiesUrl, asiaCitiesUrl, exoticCitiesUrl];
-        let promises = citiesURL.map(url => axios.get(url));
-
-
         const activitiesUrl = `${window.apiHost}/activities/today`;
-        promises.push(axios(activitiesUrl));
+        const venuesUrl = `${window.apiHost}/venues/recommended`;
 
+        const urls = [
+            recommendedUrl,
+            europeCitiesUrl,
+            asiaCitiesUrl,
+            exoticCitiesUrl,
+            activitiesUrl,
+            venuesUrl
+        ];
+
+        const promises = urls.map(url => axios.get(url));
 
 
         const [
@@ -34,7 +41,8 @@ class Home extends Component {
             { data: europeCities },
             { data: asiaCities },
             { data: exoticCities },
-            { data: activities }
+            { data: activities },
+            { data: venues }
         ] = await Promise.all(promises)
 
         this.setState({
@@ -42,7 +50,8 @@ class Home extends Component {
             europeCities,
             asiaCities,
             exoticCities,
-            activities
+            activities,
+            venues
         });
 
 
