@@ -8,7 +8,9 @@ class SingleFullVenue extends Component {
     state = {
         venue: {},
         points: [],
-        guests: 1
+        guests: 1,
+        checkIn: "",
+        checkOut: "",
     };
 
     async componentDidMount() {
@@ -26,20 +28,19 @@ class SingleFullVenue extends Component {
             { data: pointData },
         ] = await Promise.all(promises)
 
-        console.log(pointData)
 
         const points = venue.points.split(',').map((point, i) => {
-            return (<Point key={i} pointDesc={pointData} point={point} />)
+            return (<Point key={i} pointDescription={pointData} point={point} />)
         })
         this.setState({ venue, points });
     }
 
-    getPoints = () => {
-
-    };
+    changeNumberOfGuests = (e) => this.setState({ guests: e.target.value });
+    changeCheckIn = (e) => this.setState({ checkIn: e.target.value });
+    changeCheckOut = (e) => this.setState({ checkOut: e.target.value });
 
     render() {
-        const { venue } = this.state;
+        const { venue, checkIn, checkOut, guests } = this.state;
         return (
             <div className='row single-venue'>
                 <div className='col s12 center'>
@@ -57,6 +58,27 @@ class SingleFullVenue extends Component {
 
                         <div className="details">{venue.details}</div>
                         <div className="amenities">{venue.amenities}</div>
+                    </div>
+                    <div className="col s4 right-details">
+                        <div className="price-per-day">${venue.pricePerNight} <span>per day</span></div>
+                        <div className="rating">{venue.rating}</div>
+                        <div className="col s6">
+                            Check-In
+                            <input type="date" onChange={this.changeCheckIn} value={checkIn} />
+                        </div>
+                        <div className="col s6">
+                            Check-Out
+                            <input type="date" onChange={this.changeCheckOut} value={checkOut} />
+                        </div>
+
+                        <div className="col s12">
+                            <select className="browser-default" onChange={this.changeNumberOfGuests} value={guests}>
+                                <option value="1">1 Guest</option>
+                                <option value="2">2 Guest</option>
+                                <option value="3">3 Guest</option>
+                                <option value="4">4 Guest</option>
+                            </select>
+                        </div>
                     </div>
                 </div>
             </div>

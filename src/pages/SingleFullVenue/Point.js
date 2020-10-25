@@ -1,14 +1,14 @@
 import React from 'react';
 
 function Point(props) {
-    const { pointDesc } = props;
+    const { pointDescription, point } = props;
 
-    const descObj = pointDesc.find((point) => point.pointTitle === props.point)
+    const { text: description } = pointDescription.find(({ pointTitle }) => pointTitle === point)
 
     return (
         <div>
-            <div className="point-title">{props.point}</div>
-            <div className="point-desc">{descObj.text}</div>
+            <div className="point-title">{point}</div>
+            <div className="point-desc">{description}</div>
         </div>
     )
 }
