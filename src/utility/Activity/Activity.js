@@ -6,17 +6,15 @@ class Activity extends Component {
 
     render() {
         console.log(this.props.activity)
-        const { activityType, cost, id, image, rating, title, totalRatings } = this.props.activity;
+        const { activityType, cost, image, rating, title, totalRatings } = this.props.activity;
         return (
             <div className='activity'>
-                <Link to={`/activity/${id}`}>
-                    <img src={image}></img>
-                    <div className="activity-type">{activityType}</div>
-                    <div className="title">{title}</div>
-                    <div className="cost">From ${cost}/person</div>
-                    <div className="rating"><i className='material-icons'>start</i>
-                        {rating}({totalRatings})</div>
-                </Link>
+                <img src={image}></img>
+                <div className="activity-type">{activityType}</div>
+                <div className="title">{title}</div>
+                <div className="cost">From ${cost}/person</div>
+                <div className="rating"><i className='material-icons'>start</i>
+                    {rating}({totalRatings})</div>
             </div>
         )
     }
