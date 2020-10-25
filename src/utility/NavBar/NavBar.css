@@ -12,6 +12,7 @@
 .nav ul li {
   color: white;
   cursor: pointer;
+  padding: 0 15px;
 }
 
 .nav .nav-non-link {

@@ -21,9 +21,6 @@ class NavBar extends Component {
                         <Link to="/" className="left">Airbnb</Link>
                         <ul id="nav-mobile" className="right">
                             <li><Link to="/">English</Link></li>
-                            <li><Link to="/">USD $</Link></li>
-                            <li><Link to="/">Become a Host</Link></li>
-                            <li><Link to="/">Help</Link></li>
                             <li onClick={() => { this.props.openModal(true, <SignUp />) }}>Sign Up</li>
                             <li onClick={() => { this.props.openModal(true, <Login />) }}>Log in</li>
                         </ul>
