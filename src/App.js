@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Home from './pages/Home/Home';
 import NavBar from './utility/NavBar/NavBar';
 import SingleFullVenue from './pages/SingleFullVenue/SingleFullVenue';
-
+import Modal from './utility/Modal/Modal'
 
 
 class App extends Component {
@@ -14,6 +14,7 @@ class App extends Component {
         <Route path="/" component={NavBar}></Route>
         <Route exact path="/" component={Home}></Route>
         <Route exact path="/venue/:id" component={SingleFullVenue}></Route>
+        <Route path="/" component={Modal}></Route>
       </Router>
     )
   }
