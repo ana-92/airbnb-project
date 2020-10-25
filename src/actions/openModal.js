@@ -1,8 +1,8 @@
-export default (openClose, content) => {
+export default (open, content) => {
     return {
         type: "OPEN_MODAL",
         payload: {
-            openClose,
+            open,
             content,
         }
     }

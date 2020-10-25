@@ -18,7 +18,8 @@
     "react-slick": "^0.27.11",
     "redux": "^4.0.5",
     "redux-promise": "^0.6.0",
-    "slick-carousel": "^1.8.1"
+    "slick-carousel": "^1.8.1",
+    "sweetalert": "^2.1.2"
   },
   "scripts": {
     "pretest": "./node_modules/.bin/eslint --ignore-path .gitignore . --fix",

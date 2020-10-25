@@ -1,4 +1,4 @@
-const initState = { openClose: "closed", content: "" };
+const initState = { open: false, content: "" };
 
 export const siteModal = (state = initState, action) => {
     if (action.type === "OPEN_MODAL") {
