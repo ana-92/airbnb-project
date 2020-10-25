@@ -20,6 +20,7 @@ class Search extends Component {
         const searchTerm = this.props.match.params.searchTerm;
         const url = `${window.apiHost}/search/${searchTerm}`;
         const { activities, cities, venues } = await axios.get(url);
+
         this.setState({
             activities,
             cities,
