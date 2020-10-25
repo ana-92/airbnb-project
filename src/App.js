@@ -4,8 +4,8 @@ import Home from './pages/Home/Home';
 import NavBar from './utility/NavBar/NavBar';
 import CityVenues from './pages/CityVenues/CitiVenues';
 import SingleFullVenue from './pages/SingleFullVenue/SingleFullVenue';
-import Modal from './utility/Modal/Modal'
-
+import Modal from './utility/Modal/Modal';
+import Search from './pages/Search/Search';
 
 class App extends Component {
 
@@ -17,6 +17,7 @@ class App extends Component {
         <Route exact path="/city/:cityName" component={CityVenues} />
         <Route exact path="/venue/:id" component={SingleFullVenue}></Route>
         <Route path="/" component={Modal}></Route>
+        <Route path="/search/:searchTerm" component={Search} />
       </Router>
     )
   }

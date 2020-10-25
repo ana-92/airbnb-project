@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
-import './Search.css';
 import '../Home/Home.css';
 import Spinner from '../../utility/Spinner/Spinner';
 import axios from 'axios';
 import Cities from '../../utility/City/Cities';
 import Activities from '../../utility/Activity/Activities';
-import Venues from '../../utility/Venue/Venues';
+import Venues from '../../utility/Venues/Venues';
 
 class Search extends Component {
 
@@ -19,8 +18,7 @@ class Search extends Component {
     async componentDidMount() {
         const searchTerm = this.props.match.params.searchTerm;
         const url = `${window.apiHost}/search/${searchTerm}`;
-        const { activities, cities, venues } = await axios.get(url);
-
+        const { data: { activities, cities, venues } } = await axios.get(url);
         this.setState({
             activities,
             cities,
