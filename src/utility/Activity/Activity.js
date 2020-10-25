@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 class Activity extends Component {
 
     render() {
-        console.log(this.props.activity)
         const { activityType, cost, image, rating, title, totalRatings } = this.props.activity;
         return (
             <div className='activity'>

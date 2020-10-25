@@ -9,15 +9,21 @@ class SearchBox extends Component {
         guests: 0
     };
 
-    changeWhere = (e) => this.setState({ where: e.target.value })
-    changeCheckIn = (e) => this.setState({ checkIn: e.target.value })
-    changeCheckOut = (e) => this.setState({ checkOut: e.target.value })
+    changeWhere = (e) => this.setState({ where: e.target.value });
+    changeCheckIn = (e) => this.setState({ checkIn: e.target.value });
+    changeCheckOut = (e) => this.setState({ checkOut: e.target.value });
+    changeGuests = (e) => this.setState({ guests: e.target.value });
+
+    submitSearch = (e) => {
+        e.preventDefault();
+        this.props.history.push(`/search/${this.state.where}`)
+    }
 
     render() {
         return (
             <div className='home-search-box col m4'>
                 <h1>Book uniquie places to stay</h1>
-                <form className='search-box-form'>
+                <form onSubmit={this.submitSearch} className='search-box-form'>
                     <div className='col m12'>
                         <div className='form-label'>where</div>
                         <div className='input-field' id='where'>
