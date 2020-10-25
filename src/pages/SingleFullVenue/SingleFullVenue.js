@@ -38,6 +38,7 @@ class SingleFullVenue extends Component {
     changeNumberOfGuests = (e) => this.setState({ guests: e.target.value });
     changeCheckIn = (e) => this.setState({ checkIn: e.target.value });
     changeCheckOut = (e) => this.setState({ checkOut: e.target.value });
+    reserve = () => { };
 
     render() {
         const { venue, checkIn, checkOut, guests } = this.state;
@@ -78,6 +79,9 @@ class SingleFullVenue extends Component {
                                 <option value="3">3 Guest</option>
                                 <option value="4">4 Guest</option>
                             </select>
+                        </div>
+                        <div className="col s12 center">
+                            <button onClick={this.reserve} className="btn red accent-2">Reserve</button>
                         </div>
                     </div>
                 </div>
